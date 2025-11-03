@@ -123,3 +123,11 @@ sns.heatmap(cm_matrix, annot=True, fmt='d', cmap='YlGnBu')
 from sklearn.metrics import classification_report
 
 print(classification_report(y_test, y_pred))
+
+from sklearn.model_selection import cross_val_score
+
+scores = cross_val_score(knn, X, y, cv = 10, scoring='accuracy')
+
+print('Cross-validation scores:{}'.format(scores))
+
+print('Average cross-validation score: {:.2f}'.format(scores.mean()))
